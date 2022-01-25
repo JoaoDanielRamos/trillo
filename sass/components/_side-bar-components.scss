@@ -1,0 +1,95 @@
+.side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: .4rem;   
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
+        }
+    }
+
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0);
+        transform-origin: center;
+        transition: transform .2s, 
+                    width .4s .2s,
+                    ;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__link:link,
+    &__link:visited{
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        padding: 1.5rem 3rem;
+        display: block;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0;
+            margin-bottom: 0.7rem;
+        }
+    }
+}
+
+.legal {
+    font-size: 1.2rem;
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--color-grey-light-4);
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
+}
